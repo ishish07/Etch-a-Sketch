@@ -1,0 +1,54 @@
+.big-box {
+    display: flex;
+    background-color: purple;
+    height: 770px;
+    aspect-ratio: 1 / 1;
+    flex-direction: column;
+    justify-self: center;
+}
+
+.row {
+    display: flex;
+    background-color: white;
+    flex: 1 1 100px;
+    flex-wrap: wrap;
+}
+
+.small-box {
+    display: flex;
+    flex: 1 1 10px;
+    border: solid black 1px;
+}
+
+body {
+    padding: 64px;
+    padding-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    height: 770px;
+    width: 128px;
+    margin: 30px;
+    background-color: white;
+}
+
+.button {
+    margin: 32px 14px;
+    margin-top: 0;
+    height: max-content;
+}
+
+.grid {
+    display: flex;
+    margin: 30px;
+}
+
+.program {
+    display: flex;
+    padding: 32px;
+}
+
