@@ -1,23 +1,30 @@
 .big-box {
     display: flex;
     background-color: purple;
-    height: 770px;
+    height: 600px;
     aspect-ratio: 1 / 1;
     flex-direction: column;
     justify-self: center;
+    border: solid black 1px;
+}
+
+.title {
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
 }
 
 .row {
     display: flex;
     background-color: white;
-    flex: 1 1 100px;
+    flex: 1 1 1px;
     flex-wrap: wrap;
 }
 
 .small-box {
     display: flex;
-    flex: 1 1 10px;
-    border: solid black 1px;
+    flex: 1 1 1px;
+    border: solid rgb(156, 156, 156) 0.5px;
 }
 
 body {
@@ -25,6 +32,7 @@ body {
     padding-top: 32px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .side-bar {
@@ -33,13 +41,26 @@ body {
     height: 770px;
     width: 128px;
     margin: 30px;
+    margin-right: 64px;
     background-color: white;
+    align-items: center;
+    
 }
 
 .button {
     margin: 32px 14px;
     margin-top: 0;
     height: max-content;
+    width: 128px;
+}
+
+.color {
+    display: flex;
+}
+#color-picker {
+    margin: 32px 14px;
+    margin-top: 0;
+    width: 64px;
 }
 
 .grid {
@@ -50,5 +71,20 @@ body {
 .program {
     display: flex;
     padding: 32px;
+    justify-content: center;
+}
+
+.eraser-on {
+    background-color: lightblue;
+}
+
+.slider-box {
+    display: flex;
+    padding: 0;
+}
+
+#slider {
+    margin-left: 12px;
+    margin-right: 12px;
 }
 

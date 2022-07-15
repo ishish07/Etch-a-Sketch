@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +9,23 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="title">
+        <strong>Etch-a-sketch</strong>
+    </div>
     <div class="program">
         <div class="side-bar">
+            <div class="color">
+                <input type="color" id="color-picker"> 
+                <span>Color</span>
+            </div>
             <button class="button eraser">Erase</button>
-            <button class="button color">Color</button>
             <button class="button clear">Clear</button>
+            <div class="slider-box">
+                <p>1</p>
+                <input type="range" min="1" max="64" id="slider" value="16">
+                <p>64</p>
+            </div>
+            <p id="slidervalue"></p>
         </div>
         <div class="grid">
             <div class="big-box">
