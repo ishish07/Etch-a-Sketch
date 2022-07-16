@@ -16,21 +16,25 @@
         <div class="side-bar">
             <div class="color">
                 <input type="color" class="color-picker"> 
-                <span>Color</span>
+                <span style="margin-top: 10px">Color</span>
             </div>
             <div class="color" style="margin-top: 0;">
                 <input type="color" class="color-picker"> 
-                <span>Background Color</span>
+                <span style="margin-top: 10px">Background Color</span>
             </div>
             <button class="button eraser"><strong>Erase</strong></button>
             <button class="button clear"><strong>Clear</strong></button>
             <button class="button rainbow"><strong>Rainbow</strong></button>
             <button class="button lighten"><strong>Lighten</strong></button>
-            <div class="slider-items">
+            <button class="button darken"><strong>Darken</strong></button>
+            <button class="button grid-lines"><strong>Grid Lines</strong></button>
+            <div>
                 <div class="slider-box">
+                    
                     <input type="range" min="1" max="100" id="slider" value="16">
+                    
                 </div>
-                <div style="display: flex; ">
+                <div style="display: flex; justify-content: center">
                     <p id="slidervalue"></p>
                 </div>
             </div>
