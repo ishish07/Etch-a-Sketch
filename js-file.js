@@ -12,6 +12,9 @@ let eraserOn = false;
 let colorPicker = document.getElementsByClassName('color-picker');
 let gridLine = document.getElementsByClassName('grid-lines');
 let gridLines = true;
+let rainbowButton = document.getElementsByClassName('rainbow');
+let rainbowOn = false;
+let rainbowCounter = 0;
 
 // ***************************
 // INITIAL GRID SETUP
@@ -26,19 +29,6 @@ populateWithColor(slider.value);
 // ***************************
 // POPULATE FUNCTION TO FILL UP GRID
 // ***************************
-/*function populate(num) {
-    bigBox.innerHTML = "";
-    for (let row = 0; row < num; row++) {
-        let rowDiv = document.createElement('div');
-        rowDiv.classList.add('row');
-        bigBox.appendChild(rowDiv);
-        for (let col = 0; col < num; col++) {
-            let smallBox = document.createElement('div');
-            smallBox.classList.add('small-box');
-            rowDiv.appendChild(smallBox);
-        }
-    }
-}*/
 function populateWithColor(num) {
     bigBox.innerHTML = "";
     for (let row = 0; row < num; row++) {
@@ -74,11 +64,29 @@ function populateWithoutBorder(num) {
 // ***************************
 bigBox.addEventListener('mousedown', (e) => {
     currentlyDrawing = true;
-    e.target.style.backgroundColor = smallBoxColor;
+    if (!rainbowOn) {
+        if (!eraseButton[0].classList.contains('eraser-on')) {
+            smallBoxColor = colorPicker[0].value;
+        }
+        e.target.style.backgroundColor = smallBoxColor;
+    }
 });
 bigBox.addEventListener('mousemove', (e) => {
     if (currentlyDrawing) {
-        e.target.style.backgroundColor = smallBoxColor;
+        if (!rainbowOn) {
+            if (!eraseButton[0].classList.contains('eraser-on')) {
+                smallBoxColor = colorPicker[0].value;
+            }
+            e.target.style.backgroundColor = smallBoxColor;
+        } else {
+            if (eraseButton[0].classList.contains('eraser-on')) {
+                e.target.style.backgroundColor = colorPicker[1].value;
+            } else {
+                rainbowColor();
+                console.log(smallBoxColor);
+                e.target.style.backgroundColor = smallBoxColor;
+            }
+        }
     }
 });
 bigBox.addEventListener('mouseup', (e) => {
@@ -91,12 +99,14 @@ bigBox.addEventListener('mouseup', (e) => {
 eraseButton[0].addEventListener('click', erase); // Eraser button
 function erase() { // Eraser Button
     eraserOn = !eraserOn;
-    if (eraserOn) {
+    eraseButton[0].classList.toggle('eraser-on');
+    if (eraseButton[0].classList.contains('eraser-on')) {
+        console.log(colorPicker[1].value);
         smallBoxColor = colorPicker[1].value;
     } else {
         smallBoxColor = colorPicker[0].value;
     }
-    eraseButton[0].classList.toggle('eraser-on');
+    
 }
 slider.addEventListener('mouseup', () => { // Slider
     populateWithColor(slider.value);
@@ -136,7 +146,7 @@ colorPicker[1].addEventListener('input', () => { // Color Picker 2
         smallBoxes[i].style.backgroundColor = colorPicker[1].value;
     }
 });
-gridLine[0].addEventListener('click', () => { // Grid Lines
+gridLine[0].addEventListener('click', () => { // Grid Lines Button
     gridLine[0].classList.toggle('eraser-on');
     gridLines = !gridLines
     let smallBoxes = document.getElementsByClassName("small-box");
@@ -150,5 +160,28 @@ gridLine[0].addEventListener('click', () => { // Grid Lines
         }
     }
 });
+rainbowButton[0].addEventListener('click', () => { // Rainbow Button
+    rainbowButton[0].classList.toggle('eraser-on');
+    rainbowOn = !rainbowOn;
+    rainbowCounter = 0;
+});
+function rainbowColor() {
+    rainbowCounter += 1;
+    if (rainbowCounter % 7 == 1) {
+        smallBoxColor = "rgb(255, 0, 0)";
+    } else if (rainbowCounter % 7 == 2) {
+        smallBoxColor = "rgb(255, 127, 0)";
+    } else if (rainbowCounter % 7 == 3) {
+        smallBoxColor = "rgb(255, 255, 0)";
+    } else if (rainbowCounter % 7 == 4) {
+        smallBoxColor = "rgb(0, 255, 0)";
+    } else if (rainbowCounter % 7 == 5) {
+        smallBoxColor = "rgb(0, 0, 255)";
+    } else if (rainbowCounter % 7 == 6) {
+        smallBoxColor = "rgb(75, 0, 130)";
+    } else if (rainbowCounter % 7 == 0) {
+        smallBoxColor = "rgb(148, 0, 211)";
+    }
+}
 
 
