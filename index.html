@@ -10,22 +10,30 @@
 </head>
 <body>
     <div class="title">
-        <strong>Etch-a-sketch</strong>
+        <strong style="color: #e1d5d2;">Etch-a-sketch</strong>
     </div>
     <div class="program">
         <div class="side-bar">
             <div class="color">
-                <input type="color" id="color-picker"> 
+                <input type="color" class="color-picker"> 
                 <span>Color</span>
             </div>
-            <button class="button eraser">Erase</button>
-            <button class="button clear">Clear</button>
-            <div class="slider-box">
-                <p>1</p>
-                <input type="range" min="1" max="100" id="slider" value="16">
-                <p>100</p>
+            <div class="color" style="margin-top: 0;">
+                <input type="color" class="color-picker"> 
+                <span>Background Color</span>
             </div>
-            <p id="slidervalue"></p>
+            <button class="button eraser"><strong>Erase</strong></button>
+            <button class="button clear"><strong>Clear</strong></button>
+            <button class="button rainbow"><strong>Rainbow</strong></button>
+            <button class="button lighten"><strong>Lighten</strong></button>
+            <div class="slider-items">
+                <div class="slider-box">
+                    <input type="range" min="1" max="100" id="slider" value="16">
+                </div>
+                <div style="display: flex; ">
+                    <p id="slidervalue"></p>
+                </div>
+            </div>
         </div>
         <div class="grid">
             <div class="big-box">
